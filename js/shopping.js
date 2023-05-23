@@ -27,9 +27,7 @@ window.addEventListener("load", function () {
         xhr.open("GET", "shoppingdata2.json");
       } else if (_menu === "어린이날") {
         xhr.open("GET", "shoppingdata3.json");
-      } else if (_menu === "소담상회") {
-        xhr.open("GET", "shoppingdata4.json");
-      }
+      } 
       xhr.send();
   
       // html 을 만들어서
@@ -111,25 +109,33 @@ window.addEventListener("load", function () {
     //대상이 여러개이면 querySelectorAll
     //a태그가 4개 이므로 querySelectorAll
     const btns = document.querySelectorAll(".shopping .btns a");
-    btns[0].onclick = function (event) {
-      
-      parseShopping("쎈딜");
-    };
-    btns[1].onclick = function (event) {
-        //a 태그의 기본 동작인 href를 막는다.
-      event.preventDefault();
-      parseShopping("베스트");
-    };
-    btns[2].onclick = function (event) {
+    let cateName = ["쎈딜","베스트","오늘만특가","어린이날"];
+    for(let i = 0; i < cateName.length; i++){
+    btns[i].onclick = function (event) {
         event.preventDefault();
-      parseShopping("오늘만특가");
+      parseShopping(cateName[i]);
+     for(let j = 0; j < btns.length; j++){
+      btns[j].classList.remove("btns-active")
+     }
+      //포커스 적용
+      this.classList.add("btns-active");
     };
-    btns[3].onclick = function (event) {
-        event.preventDefault();
-      parseShopping("어린이날");
-    };
-    btns[4].onclick = function (event) {
-        event.preventDefault();
-      parseShopping("소담상회");
-    };
+  }
+  btns[0].classList.add("btns-active");
+    // btns[1].onclick = function (event) {
+    //     //a 태그의 기본 동작인 href를 막는다.
+    //   event.preventDefault();
+    //   parseShopping("베스트");
+    // };
+    // btns[2].onclick = function (event) {
+    //     event.preventDefault();
+    //   parseShopping("오늘만특가");
+    // };
+    // btns[3].onclick = function (event) {
+    //     event.preventDefault();
+    //   parseShopping("어린이날");
+    // };
+    // btns[4].onclick = function (event) {
+    
+    // };
   });

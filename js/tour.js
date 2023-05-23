@@ -97,21 +97,34 @@ window.addEventListener("load", function () {
       });
     }
   
-    let btns = document.querySelectorAll(".tour .btns a");
-    btns[0].onclick = function (event) {
-      event.preventDefault();
-      parseTour("망설이면 품절");
-    };
-    btns[1].onclick = function (event) {
-      event.preventDefault();
-      parseTour("패키지");
-    };
-    btns[2].onclick = function (event) {
-      event.preventDefault();
-      parseTour("숙소");
-    };
-    btns[3].onclick = function (event) {
-      event.preventDefault();
-      parseTour("해외숙소");
-    };
+    const btns = document.querySelectorAll(".tour .btns a");
+    let cateName = ["망설이면 품절","패키지","숙소","해외숙소"];
+    for(let i = 0; i < cateName.length; i++){
+      btns[i].onclick = function (event) {
+        event.preventDefault();
+        parseTour(cateName[i]);
+        for(let j = 0; j < btns.length; j++){
+          btns[j].classList.remove("btns-active")
+         }
+          //포커스 적용
+          this.classList.add("btns-active");
+      };
+    }
+    btns[0].classList.add("btns-active");
+    // btns[0].onclick = function (event) {
+    //   event.preventDefault();
+    //   parseTour(cateName[0]);
+    // };
+    // btns[1].onclick = function (event) {
+    //   event.preventDefault();
+    //   parseTour(cateName[1]);
+    // };
+    // btns[2].onclick = function (event) {
+    //   event.preventDefault();
+    //   parseTour(cateName[2]);
+    // };
+    // btns[3].onclick = function (event) {
+    //   event.preventDefault();
+    //   parseTour(cateName[3]);
+    // };
   });

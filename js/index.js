@@ -3,6 +3,16 @@
 // js 를 실행하여야 정상적인 처리가 가능하다.
 
 window.onload = function () {
+
+  //모달창 처리
+  let body = document.querySelector("body");
+  body.classList.add("modal-active");
+  let modal = document.querySelector(".modal")
+  modal.onclick = function(){
+    body.classList.remove("modal-active");
+    this.style.display = "none";
+  }
+
   // 위로 이동하기
   // .gotop 을 js에 저장하자.
   const goTop = document.querySelector(".gotop");
@@ -117,36 +127,7 @@ window.onload = function () {
       },
     },
   });
-  let booksSwiper = new Swiper(".sw-books", {
-    slidesPerView: 3,
-    grid: {
-      rows: 4,
-      fill: "row",
-    },
-    spaceBetween: 19,
-    navigation: {
-      nextEl: ".books .sw-next",
-      prevEl: ".books .sw-prev",
-    },
-    breakpoints: {
-      1024: {
-        slidesPerView: 3,
-        slidesPerGroup: 3,
-        spaceBetween: 30,
-        grid: {
-          rows: 1,
-        },
-      },
-      1280: {
-        slidesPerView: 5,
-        slidesPerGroup: 5,
-        spaceBetween: 27,
-        grid: {
-          rows: 1,
-        },
-      },
-    },
-  });
+
 
   let eventsSwiper = new Swiper(".sw-events", {
     slidesPerView: 3,
