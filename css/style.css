@@ -43,11 +43,12 @@ body {
 }
 .modal-cont{
   width: 600px;
-  height: 400px;
+  height: 500px;
   border-radius:20px;
   background:#fff;
   text-align: center;
   font-size:15px;
+  line-height: 20px;
 }
 .modal-cont p{
   font-size:25px;
