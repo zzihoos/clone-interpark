@@ -1,16 +1,20 @@
 window.addEventListener("load", function () {
   // 선택된 출력 리스트 인덱스
   let showIndex = 0;
-  let xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function (event) {
-    let req = event.target;
-    if (req.readyState === XMLHttpRequest.DONE) {
-      let data = JSON.parse(req.response);
-      parseBooks(data);
-    }
-  };
-  xhr.open("GET", "booksdata.json");
-  xhr.send();
+  // let xhr = new XMLHttpRequest();
+  // xhr.onreadystatechange = function (event) {
+  //   let req = event.target;
+  //   if (req.readyState === XMLHttpRequest.DONE) {
+  //     let data = JSON.parse(req.response);
+  //     parseBooks(data);
+  //   }
+  // };
+  // xhr.open("GET", "booksdata.json");
+  // xhr.send();
+  fetch("booksdata.json")
+  .then(res => res.json())
+  .then(result => parseBooks(result))
+  .catch(err => console.log(err));
 
   // 버튼들
   let jsonData;

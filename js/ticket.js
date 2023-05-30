@@ -1,33 +1,65 @@
 window.addEventListener("load", function () {
   // 티켓 json 연동
   function parseTicket(_per) {
-    const ticketXhttp = new XMLHttpRequest();
-    ticketXhttp.onreadystatechange = function (event) {
-      const req = event.target;
-      if (req.readyState === XMLHttpRequest.DONE) {
-        let data = JSON.parse(req.response);
-        makeTicketSlide(data);
-      }
-    };
+    // const ticketXhttp = new XMLHttpRequest();
+    // ticketXhttp.onreadystatechange = function (event) {
+    //   const req = event.target;
+    //   if (req.readyState === XMLHttpRequest.DONE) {
+    //     let data = JSON.parse(req.response);
+    //     makeTicketSlide(data);
+    //   }
+    // };
 
     if (_per === "뮤지컬") {
-      ticketXhttp.open("GET", "ticketdata.json");
+      // ticketXhttp.open("GET", "ticketdata.json");
+      fetch("ticketdata.json")
+      .then(res => res.json())
+      .then(result => makeTicketSlide(result))
+      .catch(err => console.log(err));
     } else if (_per === "콘서트") {
-      ticketXhttp.open("GET", "ticketdata1.json");
+      // ticketXhttp.open("GET", "ticketdata1.json");
+      fetch("ticketdata1.json")
+      .then(res => res.json())
+      .then(result => makeTicketSlide(result))
+      .catch(err => console.log(err));
     } else if (_per === "연극") {
-      ticketXhttp.open("GET", "ticketdata2.json");
+      // ticketXhttp.open("GET", "ticketdata2.json");
+      fetch("ticketdata2.json")
+      .then(res => res.json())
+      .then(result => makeTicketSlide(result))
+      .catch(err => console.log(err));
     } else if (_per === "클래식/무용") {
-      ticketXhttp.open("GET", "ticketdata3.json");
+      // ticketXhttp.open("GET", "ticketdata3.json");
+      fetch("ticketdata3.json")
+      .then(res => res.json())
+      .then(result => makeTicketSlide(result))
+      .catch(err => console.log(err));
     } else if (_per === "스포츠") {
-      ticketXhttp.open("GET", "ticketdata4.json");
+      // ticketXhttp.open("GET", "ticketdata4.json");
+      fetch("ticketdata4.json")
+      .then(res => res.json())
+      .then(result => makeTicketSlide(result))
+      .catch(err => console.log(err));
     } else if (_per === "레저/캠핑") {
-      ticketXhttp.open("GET", "ticketdata5.json");
+      // ticketXhttp.open("GET", "ticketdata5.json");
+      fetch("ticketdata5.json")
+      .then(res => res.json())
+      .then(result => makeTicketSlide(result))
+      .catch(err => console.log(err));
     } else if (_per === "전시/행사") {
-      ticketXhttp.open("GET", "ticketdata6.json");
+      // ticketXhttp.open("GET", "ticketdata6.json");
+      fetch("ticketdata6.json")
+      .then(res => res.json())
+      .then(result => makeTicketSlide(result))
+      .catch(err => console.log(err));
     } else if (_per === "아동/가족") {
-      ticketXhttp.open("GET", "ticketdata7.json");
+      // ticketXhttp.open("GET", "ticketdata7.json");
+      fetch("ticketdata7.json")
+      .then(res => res.json())
+      .then(result => makeTicketSlide(result))
+      .catch(err => console.log(err));
     }
-    ticketXhttp.send();
+    // ticketXhttp.send();
   }
 
   parseTicket("뮤지컬");
